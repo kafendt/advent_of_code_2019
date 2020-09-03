@@ -1,24 +1,5 @@
-fn handle_addition(input: &mut [u32], instruction_pos: usize) {
-    println!("Found addition instruction at position {}", instruction_pos);
-    let slice = &input[instruction_pos..instruction_pos + 4];
-    println!("Slice: {:?}", slice);
-    input[slice[3] as usize] = input[slice[1] as usize] + input[slice[2] as usize];
-}
-
-fn handle_multiplication(input: &mut [u32], instruction_pos: usize) {
-    println!(
-        "Found multiplication instruction at position {}",
-        instruction_pos
-    );
-    let slice = &input[instruction_pos..instruction_pos + 4];
-    println!("Slice: {:?}", slice);
-    input[slice[3] as usize] = input[slice[1] as usize] * input[slice[2] as usize];
-}
-
-fn handle_finish(input: &[u32], instruction_pos: usize) {
-    println!("Found finish instruction at position {}", instruction_pos);
-    println!("Final result: {:?}", &input[..]);
-}
+mod utils;
+use utils::{handle_addition, handle_finish, handle_multiplication};
 
 fn main() {
     let mut input: [u32; 129] = [
